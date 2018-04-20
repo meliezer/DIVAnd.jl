@@ -134,9 +134,27 @@ function readODVspreadsheet(datafile)
         debug("No. of columns: " * string(ncols))
 
         # number of total lines
+	# Read only the good lines, i.e. not empty or starting with //
+	# Small time penalty but not avoid memory consumption 
+	# when trimming the unused lines with    alldata = alldata[:,1:i]
+
         pos = position(f)
         totallines = 0
-        for line in eachline(f)
+        for row in eachline(f)
+
+            if startswith(row,"//")
+                # ignore lines starting with e.g.
+                # //<History> ...
+                continue
+            end
+
+            line = split(row, "\t");
+            
+            # some files have only white space on the last line
+            if all.(isempty(line))
+                continue
+            end
+
             totallines += 1
         end
         seek(f,pos)
@@ -155,7 +173,7 @@ function readODVspreadsheet(datafile)
             end
 
             line = split(row, "\t");
-            
+
 
             # some files have only white space on the last line
             if all.(isempty(line))
@@ -170,7 +188,7 @@ function readODVspreadsheet(datafile)
         end
 
         # trim unused lines (comments, ...)
-        alldata = alldata[:,1:i]
+        # alldata = alldata[:,1:i]
 
         # count profiles
         nprofiles = 0
