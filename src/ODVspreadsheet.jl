@@ -130,13 +130,14 @@ function readODVspreadsheet(datafile)
         #ODV doc: must provide columns for all mandatory meta-variables
         columnline = line
         columnLabels = split(chomp(columnline), '\t')
+        info("Column labels: $(columnLabels)")
         ncols = length(columnLabels);
         debug("No. of columns: " * string(ncols))
 
         # number of total lines
-	# Read only the good lines, i.e. not empty or starting with //
-	# Small time penalty but not avoid memory consumption 
-	# when trimming the unused lines with    alldata = alldata[:,1:i]
+    	# Read only the good lines, i.e. not empty or starting with //
+    	# Small time penalty but not avoid memory consumption
+    	# when trimming the unused lines with    alldata = alldata[:,1:i]
 
         pos = position(f)
         totallines = 0
@@ -149,7 +150,7 @@ function readODVspreadsheet(datafile)
             end
 
             line = split(row, "\t");
-            
+
             # some files have only white space on the last line
             if all.(isempty(line))
                 continue
