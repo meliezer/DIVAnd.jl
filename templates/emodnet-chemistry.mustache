@@ -324,10 +324,10 @@
           <gmd:verticalElement>
             <gmd:EX_VerticalExtent>
               <gmd:minimumValue>
-                <gco:Real>-5500.0</gco:Real>
+                <gco:Real>{{ elevation_min }}</gco:Real>
               </gmd:minimumValue>
               <gmd:maximumValue>
-                <gco:Real>0.0</gco:Real>
+                <gco:Real>{{ elevation_max }}</gco:Real>
               </gmd:maximumValue>
               <gmd:verticalCRS uuidref="http://spatialreference.org/ref/epsg/5714/" />
             </gmd:EX_VerticalExtent>
@@ -345,7 +345,7 @@
               <gmd:onLine>
                 <gmd:CI_OnlineResource>
                   <gmd:linkage>
-                    <gmd:URL>DOI URL</gmd:URL>
+                    <gmd:URL>{{ DOI URL }}</gmd:URL>
                   </gmd:linkage>
                   <gmd:protocol>
                     <gco:CharacterString>WWW:LINK-1.0-http--metadata-URL</gco:CharacterString>
