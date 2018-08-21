@@ -243,30 +243,39 @@
             </gmd:graphicOverview>
             <gmd:descriptiveKeywords>
                 <!-- MANDATORY: constant, for INSPIRE compliance -->
-                <gmd:MD_Keywords>
-                    <gmd:keyword>
-                        <gmx:Anchor xlink:href="http://rdfdata.eionet.europa.eu/inspirethemes/themes/28">Oceanographic geographical features</gmx:Anchor>
-                    </gmd:keyword>
-                    <gmd:type>
-                        <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme"/>
-                    </gmd:type>
-                    <gmd:thesaurusName>
-                        <gmd:CI_Citation>
-                            <gmd:title>
-                                <gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
-                            </gmd:title>
-                            <gmd:date>
-                                <gmd:CI_Date>
-                                    <gmd:date>
-                                        <gco:DateTime>2009-09-22T07:57:15</gco:DateTime>
-                                    </gmd:date>
-                                    <gmd:dateType>
-                                        <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation"/>
-                                    </gmd:dateType>
-                                </gmd:CI_Date>
-                            </gmd:date>
-                        </gmd:CI_Citation>
-                    </gmd:thesaurusName>
+                 <gmd:MD_Keywords>
+                   <gmd:keyword>
+                      <gmx:Anchor xlink:href="https://sextant.ifremer.fr/geonetwork/srv/api/registries/vocabularies/keyword?thesaurus=external.theme.inspire-theme&amp;id=http://rdfdata.eionet.europa.eu/inspirethemes/themes/28">Oceanographic geographical features</gmx:Anchor>
+                   </gmd:keyword>
+                   <gmd:type>
+                      <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                                              codeListValue="theme"/>
+                   </gmd:type>
+                   <gmd:thesaurusName>
+                      <gmd:CI_Citation>
+                         <gmd:title>
+                            <gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
+                         </gmd:title>
+                         <gmd:date>
+                            <gmd:CI_Date>
+                               <gmd:date>
+                                  <gco:Date>2009-09-22</gco:Date>
+                               </gmd:date>
+                               <gmd:dateType>
+                                  <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                                       codeListValue="publication"/>
+                               </gmd:dateType>
+                            </gmd:CI_Date>
+                         </gmd:date>
+                         <gmd:identifier>
+                            <gmd:MD_Identifier>
+                               <gmd:code>
+                                  <gmx:Anchor xlink:href="https://sextant.ifremer.fr/geonetwork/srv/eng/thesaurus.download?ref=external.theme.inspire-theme">geonetwork.thesaurus.external.theme.inspire-theme</gmx:Anchor>
+                               </gmd:code>
+                            </gmd:MD_Identifier>
+                         </gmd:identifier>
+                      </gmd:CI_Citation>
+                   </gmd:thesaurusName>
                 </gmd:MD_Keywords>
             </gmd:descriptiveKeywords>
             <gmd:descriptiveKeywords>
@@ -397,7 +406,7 @@
                         <!-- in href attribute use rdf:about attribute value                                -->
                         <!-- in text value use prefLabel tag value                                          -->
                        <!--  <gmx:Anchor xlink:href="http://vocab.nerc.ac.uk/collection/L08/current/LS/">SeaDataNet licence</gmx:Anchor> -->
-<gmx:Anchor xlink:href="http://vocab.nerc.ac.uk/collection/L08/current/LS/">SeaDataNet licence</gmx:Anchor>
+<gmx:Anchor xlink:href="http://vocab.nerc.ac.uk/collection/L08/current/UN/">unrestricted</gmx:Anchor>
                     </gmd:useLimitation>
                 </gmd:MD_Constraints>
             </gmd:resourceConstraints>
@@ -523,60 +532,6 @@
             </gmd:distributor>
             <!-- Online resources part (dépos GHER) -->
             <gmd:distributor>
-            <!-- WMS link. The first gmd:online bloc is for the definition of the dataset. Then, one gmd:online per selected layer -->
-                <gmd:MD_Distributor>
-                    <gmd:distributorContact/>
-                    <gmd:distributorFormat/>
-                    <gmd:distributorTransferOptions>
-                        <gmd:MD_DigitalTransferOptions>
-                            <gmd:onLine>
-                            <!-- bloc for dataset description -->
-                                <gmd:CI_OnlineResource>
-                                    <gmd:linkage>
-                                        <gmd:URL>{{ WMS_dataset_getcap }}</gmd:URL>
-                                    </gmd:linkage>
-                                    <gmd:protocol>
-                                        <gco:CharacterString>OGC:WMS:getCapabilities</gco:CharacterString>
-                                    </gmd:protocol>
-                                    <gmd:name>
-                                        <gco:CharacterString>{{ WMS_dataset_layer }}</gco:CharacterString>
-                                    </gmd:name>
-                                    <gmd:description gco:nilReason="missing">
-                                        <gco:CharacterString/>
-                                    </gmd:description>
-                                    <gmd:function>
-                                        <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue=""/>
-                                    </gmd:function>
-                                </gmd:CI_OnlineResource>
-                            </gmd:onLine>
-                            <!-- bloc for the layer selected -->
-                            <!-- n gmd:onLine may be used. Depends on the number of layers -->
-
-                            {{#WMS_layers}}
-                            <gmd:onLine>
-                                <gmd:CI_OnlineResource>
-                                    <gmd:linkage>
-                                        <gmd:URL>{{ getcap }}</gmd:URL>
-                                    </gmd:linkage>
-                                    <gmd:protocol>
-                                        <gco:CharacterString>OGC:WMS</gco:CharacterString>
-                                    </gmd:protocol>
-                                    <gmd:name>
-                                        <gco:CharacterString>{{ name }}</gco:CharacterString>
-                                    </gmd:name>
-                                    <gmd:description>
-                                        <gco:CharacterString>{{ description }}</gco:CharacterString>
-                                    </gmd:description>
-                                    <gmd:function>
-                                        <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue=""/>
-                                    </gmd:function>
-                                </gmd:CI_OnlineResource>
-                            </gmd:onLine>
-                            {{/WMS_layers}}
-                        </gmd:MD_DigitalTransferOptions>
-                    </gmd:distributorTransferOptions>
-                </gmd:MD_Distributor>
-            </gmd:distributor>
             <gmd:distributor>
             <!-- NetCDF file part -->
                 <gmd:MD_Distributor>
@@ -639,6 +594,59 @@
             </gmd:distributor>
         </gmd:MD_Distribution>
     </gmd:distributionInfo>
+   <gmd:distributionInfo>
+      <gmd:MD_Distribution>
+         <gmd:transferOptions>
+            <gmd:MD_DigitalTransferOptions>
+               <gmd:onLine>
+				   <!-- block for dataset description -->
+                  <gmd:CI_OnlineResource>
+                     <gmd:linkage>
+                        <gmd:URL>{{ WMS_dataset_getcap }}</gmd:URL>
+                     </gmd:linkage>
+                     <gmd:protocol>
+                        <gco:CharacterString>OGC:WMS:getCapabilities</gco:CharacterString>
+                     </gmd:protocol>
+                     <gmd:name>
+                        <gco:CharacterString>{{ WMS_dataset_layer }}</gco:CharacterString>
+                     </gmd:name>
+                     <gmd:description gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd:description>
+                     <gmd:function>
+                        <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                   codeListValue=""/>
+                     </gmd:function>
+                  </gmd:CI_OnlineResource>
+               </gmd:onLine>
+				<!-- block for the layer selected -->
+				<!-- n gmd:onLine may be used. Depends on the number of layers -->
+
+				{{#WMS_layers}}
+				<gmd:onLine>
+					<gmd:CI_OnlineResource>
+						<gmd:linkage>
+							<gmd:URL>{{ getcap }}</gmd:URL>
+						</gmd:linkage>
+						<gmd:protocol>
+							<gco:CharacterString>OGC:WMS</gco:CharacterString>
+						</gmd:protocol>
+						<gmd:name>
+							<gco:CharacterString>{{ name }}</gco:CharacterString>
+						</gmd:name>
+						<gmd:description>
+							<gco:CharacterString>{{ description }}</gco:CharacterString>
+						</gmd:description>
+						<gmd:function>
+							<gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue=""/>
+						</gmd:function>
+					</gmd:CI_OnlineResource>
+				</gmd:onLine>
+				{{/WMS_layers}}
+            </gmd:MD_DigitalTransferOptions>				
+         </gmd:transferOptions>
+      </gmd:MD_Distribution>
+   </gmd:distributionInfo>    
     <!-- MANDATORY: constant, for INSPIRE compliance -->
     <gmd:dataQualityInfo>
         <gmd:DQ_DataQuality>
